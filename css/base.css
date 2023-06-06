@@ -1,0 +1,10 @@
+* {
+    font-family: "CNViolette", "Baloo 2", ".AppleSystemUIFont", -apple-system, system-ui, sans-serif;
+    transition: all 500ms;
+}
+
+html, body {
+    margin: 0;
+    background: #111;
+    color: white;
+}
