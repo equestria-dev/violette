@@ -2,9 +2,8 @@
 
 ## Pages
 - [x] Intro page
-- [ ] Projects list
-- [ ] Plurality
-- [ ] MLP
+- [x] Projects list
+- [x] MLP
 - [ ] Links
   - [ ] Contact
   - [ ] Blog

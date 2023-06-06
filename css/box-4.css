@@ -1,0 +1,21 @@
+#box-4-background {
+    background-color: #ccc;
+}
+
+#box-4.visible #box-4-background {
+    opacity: 1;
+}
+
+#box-4-foreground.visible {
+    opacity: 1;
+}
+
+#box-4-foreground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    position: relative;
+    top: -100vh;
+    height: 100vh;
+}

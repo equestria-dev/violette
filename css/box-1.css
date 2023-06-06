@@ -10,6 +10,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    pointer-events: none;
 }
 
 #box-1-background-cover {
@@ -49,7 +50,7 @@
 #uni-foreground-content-title {
     opacity: 0;
     font-weight: normal;
-    margin: 20px 0 0;
+    margin: 40px 0 0;
     line-height: 48px;
     font-size: 48px;
 }

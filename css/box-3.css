@@ -1,0 +1,43 @@
+#box-3-background {
+    background-image: url("/assets/mlp3.png");
+    background-position: center;
+    background-size: cover;
+}
+
+#box-3.visible #box-3-background {
+    opacity: 1;
+}
+
+#box-3-foreground.visible {
+    opacity: 1;
+}
+
+#box-3-foreground {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    position: relative;
+    top: -100vh;
+    height: 100vh;
+}
+
+#box-3-foreground-items {
+    height: 75vh;
+    aspect-ratio: 1/1;
+    max-width: 90vw;
+    animation-name: items-rotate;
+    animation-duration: 60s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+@keyframes items-rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
