@@ -154,7 +154,7 @@ $coldhaze = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/includes
                     <span style="vertical-align: middle;">Visit our blog</span>
                 </a>
                 <a tabindex="0" href="https://equestria.dev" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
-                    <img src="https://equestria.horse/assets/favicon2.svg" alt="Equestria.dev logo" aria-label="Equestria.dev logo" style="height: 32px;">
+                    <img src="https://equestria.dev/assets/favicon2.svg" alt="Equestria.dev logo" aria-label="Equestria.dev logo" style="height: 32px;">
                     <span style="vertical-align: middle;">Equestria.dev and our projects</span>
                 </a>
                 <a tabindex="0" href="https://ponies.equestria.horse/raindrops" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
@@ -176,7 +176,7 @@ $coldhaze = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/includes
             <div style="display: flex; align-items: center;">
                 <div>
                     <a href="https://equestria.dev" target="_blank" class="link" tabindex="0">
-                        <img alt="Equestria.dev" aria-label="Equestria.dev" src="https://equestria.horse/assets/brand/Wordmark/MonoDark/WordmarkMonoDark.svg" style="height: 42px;" loading="lazy">
+                        <img alt="Equestria.dev" aria-label="Equestria.dev" src="https://equestria.dev/assets/brand/Wordmark/MonoDark/WordmarkMonoDark.svg" style="height: 42px;" loading="lazy">
                     </a>
                 </div>
             </div>
