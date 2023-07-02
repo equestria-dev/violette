@@ -149,7 +149,7 @@ $coldhaze = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/includes
                     <img src="/assets/icons/contact.svg" alt="Contact icon" aria-label="Contact icon" style="height: 32px;">
                     <span style="vertical-align: middle;">Get in touch with us</span>
                 </a>
-                <a tabindex="0" href="https://blog.raindrops.equestria.dev" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
+                <a tabindex="0" href="https://blog.raindrops.equestria.horse" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
                     <img src="/assets/icons/blog.svg" alt="Blog icon" aria-label="Blog icon" style="height: 32px;">
                     <span style="vertical-align: middle;">Visit our blog</span>
                 </a>
