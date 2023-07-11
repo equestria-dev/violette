@@ -1,6 +1,11 @@
 <?php
 
+$start = microtime(true);
+
 $coldhaze = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/includes/coldhaze.json"), true);
+$coldhaze["ponies"] = array_filter($coldhaze["ponies"], function ($i) {
+    return !str_contains($i["url"], "/error/");
+});
 
 ?>
 
@@ -68,6 +73,23 @@ $coldhaze = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/includes
 
         .action-link:active {
             transform: scale(0.95);
+        }
+
+        #debug {
+            tab-index: -1;
+            opacity: 0;
+            user-select: none;
+            user-focus: none;
+        }
+
+        #debug-inner {
+            pointer-events: none;
+            user-select: none;
+            user-focus: none;
+        }
+
+        #debug:hover {
+            opacity: 1;
         }
     </style>
 </head>
@@ -149,7 +171,7 @@ $coldhaze = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/includes
                     <img src="/assets/icons/contact.svg" alt="Contact icon" aria-label="Contact icon" style="height: 32px;">
                     <span style="vertical-align: middle;">Get in touch with us</span>
                 </a>
-                <a tabindex="0" href="https://blog.raindrops.equestria.horse" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
+                <a tabindex="0" href="https://raindrops-blog.equestria.horse" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
                     <img src="/assets/icons/blog.svg" alt="Blog icon" aria-label="Blog icon" style="height: 32px;">
                     <span style="vertical-align: middle;">Visit our blog</span>
                 </a>
@@ -192,7 +214,24 @@ $coldhaze = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/includes
                 </div>
 
                 <div class="modal-body">
-                    Modal body..
+                    <p>Here are the different ways you can get in touch with us:</p>
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action" href="mailto:raindrops@equestria.dev" target="_blank">
+                            <img src="/assets/icons/email.svg" style="width: 24px; height: 24px;"><span style="vertical-align: middle; margin-left: 5px;">raindrops@equestria.dev</span>
+                        </a>
+                        <div class="list-group-item">
+                            <img src="/assets/icons/discord.svg" style="width: 24px; height: 24px;"><span style="vertical-align: middle; margin-left: 5px;">raindrops.sys</span>
+                        </div>
+                        <a class="list-group-item list-group-item-action" href="https://equestria.social/@minteck" target="_blank">
+                            <img src="/assets/icons/mastodon.svg" style="width: 24px; height: 24px;"><span style="vertical-align: middle; margin-left: 5px;">@minteck@equestria.social</span>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="https://twitter.com/miapone_" target="_blank">
+                            <img src="/assets/icons/twitter.svg" style="width: 24px; height: 24px;"><span style="vertical-align: middle; margin-left: 5px;">@miapone_</span>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="https://reddit.com/user/Minteck" target="_blank">
+                            <img src="/assets/icons/reddit.svg" style="width: 24px; height: 24px;"><span style="vertical-align: middle; margin-left: 5px;">u/Minteck</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -218,10 +257,16 @@ $coldhaze = json_decode(file_get_contents($_SERVER['DOCUMENT_ROOT'] . "/includes
                     <p>The icons used on this website are provided by <a href="https://icons8.com" target="_blank">Icons8</a> and Google as part of <a href="https://fonts.google.com/icons" target="_blank">Material Design</a>.</p>
 
                     <h4>Legal notices</h4>
-                    <p>Should any copyright be infringed, please get in touch with us at <a href="raindrops@equestria.dev">raindrops@equestria.dev</a> (mention it is a copyright-related request), and we will proceed as quickly as possible once we have confirmed your identity.</p>
-                    <p>For additional details about how Equestria.dev manages copyright and user data, please refer to <a href="https://equestria.horse/legal" target="_blank">the legal portal</a>.</p>
+                    <p>Should any copyright be infringed, please get in touch with us at <a href="mailto:raindrops@equestria.dev">raindrops@equestria.dev</a> (mention it is a copyright-related request), and we will proceed as quickly as possible once we have confirmed your identity.</p>
+                    <p>For additional details about how Equestria.dev manages copyright and user data, please refer to <a href="https://equestria.dev/legal" target="_blank">the legal portal</a>.</p>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div style="color: white; text-shadow: 0 0 10px black; position: fixed; top: 8px; left: 8px;" id="debug">
+        <div id="debug-inner">
+            Rendered in <?= round((microtime(true) - $start) * 1000, 2) ?> ms<br>PID: <?= getmypid() ?><br>Memory: <?= round(memory_get_usage(false) / 1024, 1) ?>K/<?= round(memory_get_peak_usage(false) / 1024, 1) ?>K
         </div>
     </div>
 </body>
