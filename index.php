@@ -45,6 +45,28 @@ $coldhaze["ponies"] = array_filter($coldhaze["ponies"], function ($i) {
             }
         }
 
+        @media (max-width: 1200px) {
+            .contacts-icon {
+                display: block !important;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 991px) {
+            #contacts {
+                grid-template-columns: repeat(3, 1fr) !important;
+                grid-row-gap: 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #contacts {
+                grid-template-columns: repeat(2, 1fr) !important;
+                grid-row-gap: 20px;
+            }
+        }
+
         .modal {
             backdrop-filter: blur(20px);
         }
@@ -166,22 +188,26 @@ $coldhaze["ponies"] = array_filter($coldhaze["ponies"], function ($i) {
             <hr>
 
             <h2 class="h3">Check out more</h2>
-            <div id="contacts" style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; grid-gap: 20px; margin-top: 20px;">
+            <div id="contacts" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-gap: 20px; margin-top: 20px;">
                 <a tabindex="0" data-bs-toggle="modal" data-bs-target="#modal-contact" href="#modal-contact" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
-                    <img src="/assets/icons/contact.svg" alt="Contact icon" aria-label="Contact icon" style="height: 32px;">
-                    <span style="vertical-align: middle;">Get in touch with us</span>
+                    <img class="contacts-icon" src="/assets/icons/contact.svg" alt="Contact icon" aria-label="Contact icon" style="height: 32px;">
+                    <span style="vertical-align: middle;">Get in touch</span>
                 </a>
                 <a tabindex="0" href="https://raindrops-blog.equestria.horse" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
-                    <img src="/assets/icons/blog.svg" alt="Blog icon" aria-label="Blog icon" style="height: 32px;">
-                    <span style="vertical-align: middle;">Visit our blog</span>
+                    <img class="contacts-icon" src="/assets/icons/blog.svg" alt="Blog icon" aria-label="Blog icon" style="height: 32px;">
+                    <span style="vertical-align: middle;">Blog</span>
                 </a>
                 <a tabindex="0" href="https://equestria.dev" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
-                    <img src="https://equestria.dev/assets/favicon2.svg" alt="Equestria.dev logo" aria-label="Equestria.dev logo" style="height: 32px;">
-                    <span style="vertical-align: middle;">Equestria.dev and our projects</span>
+                    <img class="contacts-icon" src="https://equestria.dev/assets/favicon2.svg" alt="Equestria.dev logo" aria-label="Equestria.dev logo" style="height: 32px;">
+                    <span style="vertical-align: middle;">Equestria.dev</span>
                 </a>
                 <a tabindex="0" href="https://ponies.equestria.horse/raindrops" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
-                    <img src="/assets/icons/plural.svg" alt="Plural icon" aria-label="Plural icon" style="height: 32px;">
-                    <span style="vertical-align: middle;">More about our plural system</span>
+                    <img class="contacts-icon" src="/assets/icons/plural.svg" alt="Plural icon" aria-label="Plural icon" style="height: 32px;">
+                    <span style="vertical-align: middle;">Plural system</span>
+                </a>
+                <a tabindex="0"  data-bs-toggle="modal" data-bs-target="#modal-gift" href="#modal-gift" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;">
+                    <img class="contacts-icon" src="/assets/icons/gift.svg" alt="Gift icon" aria-label="Gift icon" style="height: 32px;">
+                    <span style="vertical-align: middle;">Make a gift</span>
                 </a>
             </div>
         </main>
@@ -237,6 +263,32 @@ $coldhaze["ponies"] = array_filter($coldhaze["ponies"], function ($i) {
         </div>
     </div>
 
+    <div class="modal fade" id="modal-gift">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Make us a gift</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <p>Thank you for wanting to give us something! If you don't know what to give, here are links to our various wishlists:</p>
+
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action" href="https://store.steampowered.com/wishlist/id/RaindropsSys/#sort=order" target="_blank">
+                            <img src="/assets/icons/steam.svg" style="width: 24px; height: 24px;"><span style="vertical-align: middle; margin-left: 5px;"><b>Steam</b> (most wanted to least wanted)</span>
+                        </a>
+                        <a class="list-group-item list-group-item-action" href="https://www.amazon.com/hz/wishlist/ls/KJZJ3MY57E4J" target="_blank">
+                            <img src="/assets/icons/amazon.svg" style="width: 24px; height: 24px;"><span style="vertical-align: middle; margin-left: 5px;"><b>Amazon</b> (unordered)</span>
+                        </a>
+                    </div>
+
+                    <div class="alert alert-secondary" style="margin-bottom: 0;margin-top: 1rem;">While we try to give back, we are not always able to. Please do not expect anything back from your gifts and only gift if you are financially able to. It's the thought that matters.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="modal fade" id="modal-credits">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -246,7 +298,7 @@ $coldhaze["ponies"] = array_filter($coldhaze["ponies"], function ($i) {
                 </div>
 
                 <div class="modal-body">
-                    <p>This website is open-source software. The source code used for running it is available on Equestria.dev's Git hosting platform: <a href="https://git.equestria.dev/equestria.dev/violette" target="_blank">https://git.equestria.dev/equestria.dev/violette</a>.</p>
+                    <p>This website is open-source software. The source code used for running it is available on Equestria.dev's GitLab instance: <a href="https://source.equestria.dev/equestria.dev/violette" target="_blank">https://source.equestria.dev/equestria.dev/violette</a>.</p>
 
                     <h4>Trademarks</h4>
                     <p>MY LITTLE PONY, the MY LITTLE PONY logo and the "MY LITTLE PONY" name are registered trademarks of Hasbro in the United States and other countries. Equestria.dev is a trademark of Equestria.dev.</p>
