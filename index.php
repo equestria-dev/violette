@@ -113,6 +113,12 @@ $coldhaze["ponies"] = array_filter($coldhaze["ponies"], function ($i) {
         #debug:hover {
             opacity: 1;
         }
+
+        @media (max-height: 700px) {
+            #box {
+                max-height: 60vh !important;
+            }
+        }
     </style>
 </head>
 <body style="background-image: url('/assets/bg.webp'); background-size: cover; background-position: center; background-attachment: fixed; display: flex; align-items: center; height: 100%; background-color: #1a242c; overflow: hidden; margin: 0 20px;">
