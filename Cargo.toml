@@ -1,0 +1,13 @@
+[package]
+name = "violette"
+version = "2.0.0"
+edition = "2021"
+
+[dependencies]
+maud = "0.26.0"
+copy_dir = "0.1.3"
+log = "0.4.20"
+simple_logger = "4.3.3"
+ureq = { version = "2.9.1", features = ["json"] }
+serde = { version = "1.0.196", features = ["derive"] }
+chrono = "0.4.33"
