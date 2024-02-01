@@ -38,10 +38,12 @@ fn main() {
     let output_path = PathBuf::from(args.next().unwrap());
     let mut output_assets_path = output_path.clone();
     let mut output_html_path = output_path.clone();
+    let mut output_404_path = output_path.clone();
     let source_assets_path = PathBuf::from("assets");
 
     output_assets_path.push("assets");
     output_html_path.push("index.html");
+    output_404_path.push("index.html");
 
     info!("Output directory: {:?}", output_path);
 
@@ -67,11 +69,18 @@ fn main() {
 
     let markup = generate_template(data);
 
-    let mut file = fs::File::create("./out/index.html").expect("Failed to create the file");
+    let mut file1 = fs::File::create(&output_html_path).expect("Failed to create the index.html file");
+    let mut file2 = fs::File::create(&output_404_path).expect("Failed to create the 404.html file");
     info!("Created HTML file {:?}", output_html_path);
 
-    file.write_all(markup.into_string().as_ref()).expect("Failed to write to file");
+    let html_str = markup.into_string();
+    let html = html_str.as_ref();
+
+    file1.write_all(html).expect("Failed to write to index.html file");
     info!("Rendered HTML to {:?}", output_html_path);
+
+    file2.write_all(html).expect("Failed to write to 404.html file");
+    info!("Copied as 404 handler {:?}", output_html_path);
 
     info!("All done, bye!");
 }
