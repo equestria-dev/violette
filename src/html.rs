@@ -16,7 +16,7 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                 title { "Raindrops" };
                 meta name="description" content=(format!("Hi there! We are Raindrops. We are a plural system of {} ponies. We use she/pony pronouns. Learn more about us.", data.count));
 
-                link rel="icon" href="https://ponies.equestria.horse/assets/avatars/7d9f543ef74240f69d0786c3f2983124.webp" type="image/webp";
+                link rel="icon" href="https://cdn.equestria.dev/ponies/avatars/7d9f543ef74240f69d0786c3f2983124.webp" type="image/webp";
                 link rel="stylesheet" href="/assets/bootstrap.min.css";
 
                 script src="/assets/bootstrap.bundle.min.js";
@@ -24,8 +24,8 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                     (PreEscaped(r#"{
                         "@context": "https://schema.org",
                         "@type": "Organization",
-                        "url": "https://raindrops.equestria.horse",
-                        "logo": "https://ponies.equestria.horse/assets/avatars/7d9f543ef74240f69d0786c3f2983124.webp"
+                        "url": "https://p.equestria.dev",
+                        "logo": "https://cdn.equestria.dev/ponies/avatars/7d9f543ef74240f69d0786c3f2983124.webp"
                     }"#))
                 }
 
@@ -206,7 +206,7 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                                 img class="contacts-icon" src="/assets/icons/contact.svg" alt="Contact icon" aria-label="Contact icon" style="height: 32px;";
                                 span style="vertical-align: middle;" { "Get in touch" }
                             }
-                            a tabindex="0" href="https://raindrops-blog.equestria.horse" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
+                            a tabindex="0" href="https://blog.p.equestria.dev" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
                                 img class="contacts-icon" src="/assets/icons/blog.svg" alt="Blog icon" aria-label="Blog icon" style="height: 32px;";
                                 span style="vertical-align: middle;" { "Blog" }
                             }
@@ -214,7 +214,7 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                                 img class="contacts-icon" src="https://equestria.dev/assets/favicon2.svg" alt="Equestria.dev logo" aria-label="Equestria.dev logo" style="height: 32px;";
                                 span style="vertical-align: middle;" { "Equestria.dev" }
                             }
-                            a tabindex="0" href="https://ponies.equestria.horse/raindrops" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
+                            a tabindex="0" href="https://ponycule.p.equestria.dev/raindrops" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
                                 img class="contacts-icon" src="/assets/icons/plural.svg" alt="Plural icon" aria-label="Plural icon" style="height: 32px;";
                                 span style="vertical-align: middle;" { "Plural system" }
                             }

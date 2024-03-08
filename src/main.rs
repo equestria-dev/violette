@@ -48,7 +48,7 @@ fn main() {
     info!("Output directory: {:?}", output_path);
 
     info!("Fetching Ponycule for plural system information...");
-    let data: PonyculeData = ureq::get("https://ponycule.equestria.horse/api/violette")
+    let data: PonyculeData = ureq::get("https://ponycule.p.equestria.dev/api/violette")
         .call().unwrap()
         .into_json().unwrap();
     info!("Request completed, found {} system members", data.count);
