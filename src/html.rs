@@ -14,9 +14,9 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                 meta http-equiv="X-UA-Compatible" content="ie=edge";
 
                 title { "Raindrops" };
-                meta name="description" content=(format!("Hi there! We are Raindrops. We are a plural system of {} ponies. We use she/pony pronouns. Learn more about us.", data.count));
+                meta name="description" content=(format!("Hi there! We are Raindrops. We are a plural system of {} creatures. We use she/her pronouns. Learn more about us.", data.count));
 
-                link rel="icon" href="https://cdn.equestria.dev/ponies/avatars/7d9f543ef74240f69d0786c3f2983124.webp" type="image/webp";
+                link rel="icon" href="https://cdn.equestria.dev/pluralkit/gdapd/avatar.png" type="image/png";
                 link rel="stylesheet" href="/assets/bootstrap.min.css";
 
                 script src="/assets/bootstrap.bundle.min.js";
@@ -50,7 +50,7 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                         .contacts-icon {
                             display: block !important;
                             margin-left: auto;
-                            margin-right: auto;
+                            margin-right: auto !important;
                         }
                     }
 
@@ -150,16 +150,9 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                         p {
                             "We are a plural system of "
                             (data.count)
-                            " ponies. We use "
-                            b { "she/pony" }
+                            " creatures. We use "
+                            b { "she/her" }
                             " pronouns."
-                        }
-                        div class="heads" style=(format!("display: grid; grid-template-columns: repeat({}, 1fr);", data.count)) {
-                            @for pony in data.ponies {
-                                div style="display: flex; align-items: end; justify-content: center; overflow: hidden;" {
-                                    img alt=(pony.label) aria-label=(pony.label) src=(pony.url) style="image-rendering: pixelated; height: 28px;" loading="lazy";
-                                }
-                            }
                         }
 
                         hr style="margin-top: 0 !important;";
@@ -203,23 +196,23 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                         h2 class="h3" { "Check out more" }
                         div id="contacts" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-gap: 20px; margin-top: 20px;" {
                             a tabindex="0" data-bs-toggle="modal" data-bs-target="#modal-contact" href="#modal-contact" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
-                                img class="contacts-icon" src="/assets/icons/contact.svg" alt="Contact icon" aria-label="Contact icon" style="height: 32px;";
+                                img class="contacts-icon" src="/assets/icons/contact.svg" alt="Contact icon" aria-label="Contact icon" style="height: 32px; margin-right: 10px;";
                                 span style="vertical-align: middle;" { "Get in touch" }
                             }
                             a tabindex="0" href="https://blog.p.equestria.dev" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
-                                img class="contacts-icon" src="/assets/icons/blog.svg" alt="Blog icon" aria-label="Blog icon" style="height: 32px;";
+                                img class="contacts-icon" src="/assets/icons/blog.svg" alt="Blog icon" aria-label="Blog icon" style="height: 32px; margin-right: 10px;";
                                 span style="vertical-align: middle;" { "Blog" }
                             }
                             a tabindex="0" href="https://equestria.dev" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
-                                img class="contacts-icon" src="https://equestria.dev/assets/favicon2.svg" alt="Equestria.dev logo" aria-label="Equestria.dev logo" style="height: 32px;";
+                                img class="contacts-icon" src="https://equestria.dev/assets/favicon2.svg" alt="Equestria.dev logo" aria-label="Equestria.dev logo" style="height: 32px; margin-right: 10px;";
                                 span style="vertical-align: middle;" { "Equestria.dev" }
                             }
-                            a tabindex="0" href="https://ponycule.p.equestria.dev/raindrops" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
-                                img class="contacts-icon" src="/assets/icons/plural.svg" alt="Plural icon" aria-label="Plural icon" style="height: 32px;";
+                            a tabindex="0" href="https://dash.pluralkit.me/profile/s/gdapd" target="_blank" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
+                                img class="contacts-icon" src="/assets/icons/plural.svg" alt="Plural icon" aria-label="Plural icon" style="height: 32px; margin-right: 10px;";
                                 span style="vertical-align: middle;" { "Plural system" }
                             }
                             a tabindex="0" data-bs-toggle="modal" data-bs-target="#modal-gift" href="#modal-contact" class="action-link" style="cursor: pointer; background-color: rgba(0, 0, 0, .1); padding: 20px; border-radius: 10px;" {
-                                img class="contacts-icon" src="/assets/icons/gift.svg" alt="Gift icon" aria-label="Gift icon" style="height: 32px;";
+                                img class="contacts-icon" src="/assets/icons/gift.svg" alt="Gift icon" aria-label="Gift icon" style="height: 32px; margin-right: 10px;";
                                 span style="vertical-align: middle;" { "Make a gift" }
                             }
                         }
@@ -230,7 +223,7 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                     div class="container" style="display: grid; grid-template-columns: max-content 1fr max-content;" {
                         div style="display: flex; align-items: center; max-width: 70vw;" {
                             div style="text-shadow: 0 0 10px black;" {
-                                "© 2023-" (Utc::now().year()) " Equestria.dev Developers. My Little Pony is ™ and © Hasbro, All rights reserved. "
+                                "© 2023-" (Utc::now().year()) " Equestria.dev Developers. "
                                 a data-bs-toggle="modal" href="#modal-credits" data-bs-target="#modal-credits" style="color: white; text-decoration: underline; text-shadow: 0 0 10px black;" class="link" tabindex="0" {
                                     "Licenses and credits."
                                 }
@@ -240,7 +233,7 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                         div style="display: flex; align-items: center;" {
                             div {
                                 a href="https://equestria.dev" target="_blank" class="link" tabindex="0" {
-                                    img alt="Equestria.dev" aria-label="Equestria.dev" src="https://equestria.dev/assets/brand/Wordmark/MonoDark/WordmarkMonoDark.svg" style="height: 42px;" loading="lazy";
+                                    img alt="Equestria.dev" aria-label="Equestria.dev" src="https://cdn.equestria.dev/starshine/brand/wordmark/dark/wordmarkdark.svg" style="height: 42px;" loading="lazy";
                                 }
                             }
                         }
@@ -273,6 +266,10 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                                     a class="list-group-item list-group-item-action" href="https://twitter.com/miapone_" target="_blank" {
                                         img src="/assets/icons/twitter.svg" style="width: 24px; height: 24px;";
                                         span style="vertical-align: middle; margin-left: 5px;" { "@miapone_" }
+                                    }
+                                    a class="list-group-item list-group-item-action" href="https://instagram.com/raindrops.sys" target="_blank" {
+                                        img src="/assets/icons/instagram.png" style="width: 24px; height: 24px;";
+                                        span style="vertical-align: middle; margin-left: 5px;" { "@raindrops.sys" }
                                     }
                                     a class="list-group-item list-group-item-action" href="https://reddit.com/user/Minteck" target="_blank" {
                                         img src="/assets/icons/reddit.svg" style="width: 24px; height: 24px;";
@@ -338,10 +335,10 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                                 }
 
                                 h4 { "Trademarks" }
-                                p { "MY LITTLE PONY, the MY LITTLE PONY logo and the \"MY LITTLE PONY\" name are registered trademarks of Hasbro in the United States and other countries. Equestria.dev is a trademark of Equestria.dev." }
+                                p { "MY LITTLE PONY, the MY LITTLE PONY logo and the \"MY LITTLE PONY\" name are registered trademarks of Hasbro in the United States and other countries. BLUEY, the BLUEY logo and the \"BLUEY\" name are registered trademarks of the British Broadcasting Corporation in the United Kingdom and other countries. Equestria.dev is a trademark of Equestria.dev." }
 
                                 h4 { "Assets credits" }
-                                p { "The background image used on this website is a screenshot from the movie \"My Little Pony: A New Generation\" released by Netflix in September 2021, which is © 2021 Hasbro, All rights reserved." }
+                                p { "The background image used on this website is a screenshot from the movie \"My Little Pony: A New Generation\" released by Netflix in September 2021, which is © 2021 Hasbro, All rights reserved. Bluey is © Ludo Studio, licensed by BBC Studios Distribution Ltd." }
                                 p {
                                     "The flying Sunny Starscout animation, which is unmodified, is made by Xodok. The original can be found "
                                     a href="https://derpibooru.org/images/3059117" target="_blank" { "on the Derpibooru image board" }
