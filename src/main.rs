@@ -14,14 +14,7 @@ use crate::html::generate_template;
 
 #[derive(Deserialize)]
 struct PonyculeData {
-    count: u32,
-    ponies: Vec<PonyculeDataMember>
-}
-
-#[derive(Deserialize)]
-struct PonyculeDataMember {
-    url: String,
-    label: String
+    count: u32
 }
 
 fn main() {

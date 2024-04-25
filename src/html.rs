@@ -132,6 +132,15 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                     }"#))
                 }
 
+                script {
+                    (PreEscaped(r#"window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };"#))
+                }
+                script defer src="/_vercel/insights/script.js" {}
+                script {
+                    (PreEscaped(r#"window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };"#))
+                }
+                script defer src="/_vercel/speed-insights/script.js" {}
+
                 div style="margin-left: auto; margin-right: auto; padding: 2px; background-image: linear-gradient(119deg, rgba(216,53,124,.5) 0%, rgba(227,65,55,.5) 7%, rgba(231,155,96,.5) 14%, rgba(223,191,78,.5) 21%, rgba(203,207,117,.5) 28%, rgba(108,224,154,.5) 35%, rgba(106,228,205,.5) 42%, rgba(100,217,234,.5) 49%, rgba(83,182,238,.5) 56%, rgba(74,158,234,.5) 63%, rgba(164,137,238,.5) 70%, rgba(211,142,240,.5) 77%, rgba(230,122,238,.5) 84%, rgba(227,113,196,.5) 91%); border-radius: 20px;" {
                     main id="box" class="container" style="width: 100%; background-color: rgba(245,245,245,0.75); padding: 20px; border-radius: 20px; text-align: center; backdrop-filter: blur(20px); max-height: 75vh; overflow: auto;" {
                         div style="display: grid; grid-template-columns: max-content 1fr; width: max-content; margin: 0 auto;" id="main-grid" {
