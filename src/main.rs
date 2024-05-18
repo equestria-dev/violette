@@ -8,14 +8,8 @@ use std::env::args_os;
 use std::path::PathBuf;
 use log::{error, info, LevelFilter, warn};
 use simple_logger::SimpleLogger;
-
-use serde::{Deserialize};
+use ureq::serde_json;
 use crate::html::generate_template;
-
-#[derive(Deserialize)]
-struct PonyculeData {
-    count: u32
-}
 
 fn main() {
     SimpleLogger::new().with_level(LevelFilter::Info).init().unwrap();
@@ -40,11 +34,11 @@ fn main() {
 
     info!("Output directory: {:?}", output_path);
 
-    info!("Fetching Ponycule for plural system information...");
-    let data: PonyculeData = ureq::get("https://ponycule.p.equestria.dev/api/violette")
+    info!("Fetching PluralKit for system information...");
+    let data: Vec<serde_json::Value> = ureq::get("https://api.pluralkit.me/v2/systems/gdapd/members")
         .call().unwrap()
         .into_json().unwrap();
-    info!("Request completed, found {} system members", data.count);
+    info!("Request completed, found {} system members", data.len());
 
     if Path::new(&output_path).exists() {
         warn!("Found an older build, proceeding to delete it");

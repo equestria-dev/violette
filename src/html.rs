@@ -1,9 +1,9 @@
 use maud::{html, Markup, PreEscaped};
 use maud::DOCTYPE;
-use crate::PonyculeData;
 use chrono::{Datelike, Utc};
+use ureq::serde_json;
 
-pub fn generate_template(data: PonyculeData) -> Markup {
+pub fn generate_template(data: Vec<serde_json::Value>) -> Markup {
     html! {
         (DOCTYPE)
         html lang="en" style="height: 100%;" {
@@ -14,7 +14,7 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                 meta http-equiv="X-UA-Compatible" content="ie=edge";
 
                 title { "Raindrops" };
-                meta name="description" content=(format!("Hi there! We are Raindrops. We are a plural system of {} creatures. We use she/her pronouns. Learn more about us.", data.count));
+                meta name="description" content=(format!("Hi there! We are Raindrops. We are a plural system of {} creatures. We use she/her pronouns. Learn more about us.", data.len()));
 
                 link rel="icon" href="https://cdn.equestria.dev/pluralkit/gdapd/avatar.png" type="image/png";
                 link rel="stylesheet" href="/assets/bootstrap.min.css";
@@ -158,7 +158,7 @@ pub fn generate_template(data: PonyculeData) -> Markup {
 
                         p {
                             "We are a plural system of "
-                            (data.count)
+                            (data.len())
                             " creatures. We use "
                             b { "she/her" }
                             " pronouns."
@@ -277,7 +277,7 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                                         span style="vertical-align: middle; margin-left: 5px;" { "@miapone_" }
                                     }
                                     a class="list-group-item list-group-item-action" href="https://instagram.com/raindrops.sys" target="_blank" {
-                                        img src="/assets/icons/instagram.png" style="width: 24px; height: 24px;";
+                                        img src="/assets/icons/instagram.svg" style="width: 24px; height: 24px;";
                                         span style="vertical-align: middle; margin-left: 5px;" { "@raindrops.sys" }
                                     }
                                     a class="list-group-item list-group-item-action" href="https://reddit.com/user/Minteck" target="_blank" {
@@ -318,7 +318,13 @@ pub fn generate_template(data: PonyculeData) -> Markup {
                                     }
                                 }
 
-                                div class="alert alert-secondary" style="margin-bottom: 0;margin-top: 1rem;" {
+                                p style="margin-top: 1rem;" {
+                                    "If you are a friend of mine, you might also have access to my "
+                                    a href="https://wishlist.p.equestria.dev" target="_blank" { "personal wishlist" }
+                                    ", which contains properly ordered items with their price and the reason behind their choice."
+                                }
+
+                                div class="alert alert-secondary" style="margin-bottom: 0;" {
                                     "While we try to give back, we are not always able to. Please do not expect anything back from your gifts and only gift if you are financially able to. It's the thought that matters."
                                 }
                             }

@@ -8,5 +8,16 @@
       "source": "/assets/(.*)",
       "destination": "/assets/$1"
     }
+  ],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, s-maxage=3600, maxage=86400, stale-while-revalidate=300, stale-if-error=86400"
+        }
+      ]
+    }
   ]
 }
