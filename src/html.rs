@@ -13,8 +13,8 @@ pub fn generate_template(data: Vec<serde_json::Value>) -> Markup {
                 meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0";
                 meta http-equiv="X-UA-Compatible" content="ie=edge";
 
-                title { "Raindrops" };
-                meta name="description" content=(format!("Hi there! We are Raindrops. We are a plural system of {} creatures. We use she/her pronouns. Learn more about us.", data.len()));
+                title { "The Starscouts" };
+                meta name="description" content=(format!("Formerly known as Raindrops · Hi there! We are the Starscouts. We are a plural system of {} creatures. We use she/her pronouns. Learn more about us.", data.len()));
 
                 link rel="icon" href="https://cdn.equestria.dev/pluralkit/gdapd/avatar.png" type="image/png";
                 link rel="stylesheet" href="/assets/bootstrap.min.css";
@@ -25,7 +25,7 @@ pub fn generate_template(data: Vec<serde_json::Value>) -> Markup {
                         "@context": "https://schema.org",
                         "@type": "Organization",
                         "url": "https://p.equestria.dev",
-                        "logo": "https://cdn.equestria.dev/ponies/avatars/7d9f543ef74240f69d0786c3f2983124.webp"
+                        "logo": "https://cdn.equestria.dev/pluralkit/gdapd/avatar.png"
                     }"#))
                 }
 
@@ -132,15 +132,6 @@ pub fn generate_template(data: Vec<serde_json::Value>) -> Markup {
                     }"#))
                 }
 
-                script {
-                    (PreEscaped(r#"window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };"#))
-                }
-                script defer src="/_vercel/insights/script.js" {}
-                script {
-                    (PreEscaped(r#"window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };"#))
-                }
-                script defer src="/_vercel/speed-insights/script.js" {}
-
                 div style="margin-left: auto; margin-right: auto; padding: 2px; background-image: linear-gradient(119deg, rgba(216,53,124,.5) 0%, rgba(227,65,55,.5) 7%, rgba(231,155,96,.5) 14%, rgba(223,191,78,.5) 21%, rgba(203,207,117,.5) 28%, rgba(108,224,154,.5) 35%, rgba(106,228,205,.5) 42%, rgba(100,217,234,.5) 49%, rgba(83,182,238,.5) 56%, rgba(74,158,234,.5) 63%, rgba(164,137,238,.5) 70%, rgba(211,142,240,.5) 77%, rgba(230,122,238,.5) 84%, rgba(227,113,196,.5) 91%); border-radius: 20px;" {
                     main id="box" class="container" style="width: 100%; background-color: rgba(245,245,245,0.75); padding: 20px; border-radius: 20px; text-align: center; backdrop-filter: blur(20px); max-height: 75vh; overflow: auto;" {
                         div style="display: grid; grid-template-columns: max-content 1fr; width: max-content; margin: 0 auto;" id="main-grid" {
@@ -151,13 +142,13 @@ pub fn generate_template(data: Vec<serde_json::Value>) -> Markup {
                             }
                             div style="display: flex; align-items: center; justify-content: center;" {
                                 div {
-                                    h1 { "Hi there! We are Raindrops" }
+                                    h1 { "Hi there! We are the Starscouts" }
                                 }
                             }
                         }
 
                         p {
-                            "We are a plural system of "
+                            "Formerly known as Raindrops · We are a plural system of "
                             (data.len())
                             " creatures. We use "
                             b { "she/her" }
@@ -260,13 +251,13 @@ pub fn generate_template(data: Vec<serde_json::Value>) -> Markup {
                             div class="modal-body" {
                                 p { "Here are the different ways you can get in touch with us:" }
                                 div class="list-group" {
-                                    a class="list-group-item list-group-item-action" href="mailto:raindrops@equestria.dev" target="_blank" {
+                                    a class="list-group-item list-group-item-action" href="mailto:starscouts@equestria.dev" target="_blank" {
                                         img src="/assets/icons/email.svg" style="width: 24px; height: 24px;";
-                                        span style="vertical-align: middle; margin-left: 5px;" { "raindrops@equestria.dev" }
+                                        span style="vertical-align: middle; margin-left: 5px;" { "starscouts@equestria.dev" }
                                     }
                                     div class="list-group-item" {
                                         img src="/assets/icons/discord.svg" style="width: 24px; height: 24px;";
-                                        span style="vertical-align: middle; margin-left: 5px;" { "raindrops.sys" }
+                                        span style="vertical-align: middle; margin-left: 5px;" { "starscouts" }
                                     }
                                     a class="list-group-item list-group-item-action" href="https://equestria.social/@minteck" target="_blank" {
                                         img src="/assets/icons/mastodon.svg" style="width: 24px; height: 24px;";
@@ -276,9 +267,9 @@ pub fn generate_template(data: Vec<serde_json::Value>) -> Markup {
                                         img src="/assets/icons/twitter.svg" style="width: 24px; height: 24px;";
                                         span style="vertical-align: middle; margin-left: 5px;" { "@miapone_" }
                                     }
-                                    a class="list-group-item list-group-item-action" href="https://instagram.com/raindrops.sys" target="_blank" {
+                                    a class="list-group-item list-group-item-action" href="https://instagram.com/the.starscouts" target="_blank" {
                                         img src="/assets/icons/instagram.svg" style="width: 24px; height: 24px;";
-                                        span style="vertical-align: middle; margin-left: 5px;" { "@raindrops.sys" }
+                                        span style="vertical-align: middle; margin-left: 5px;" { "@the.starscouts" }
                                     }
                                     a class="list-group-item list-group-item-action" href="https://reddit.com/user/Minteck" target="_blank" {
                                         img src="/assets/icons/reddit.svg" style="width: 24px; height: 24px;";
@@ -302,7 +293,7 @@ pub fn generate_template(data: Vec<serde_json::Value>) -> Markup {
                                 p { "Thank you for wanting to give us something! If you don't know what to give, here are links to our various wishlists:" }
 
                                 div class="list-group" {
-                                    a class="list-group-item list-group-item-action" href="https://store.steampowered.com/wishlist/id/RaindropsSys/#sort=order" target="_blank" {
+                                    a class="list-group-item list-group-item-action" href="https://store.steampowered.com/wishlist/id/Starscouts/#sort=order" target="_blank" {
                                         img src="/assets/icons/steam.svg" style="width: 24px; height: 24px;";
                                         span style="vertical-align: middle; margin-left: 5px;" {
                                             b { "Steam" }
@@ -370,7 +361,7 @@ pub fn generate_template(data: Vec<serde_json::Value>) -> Markup {
                                 h4 { "Legal notices" }
                                 p {
                                     "Should any copyright be infringed, please get in touch with us at "
-                                    a href="mailto:raindrops@equestria.dev" { "raindrops@equestria.dev"}
+                                    a href="mailto:starscouts@equestria.dev" { "starscouts@equestria.dev"}
                                     " (mention it is a copyright-related request), and we will proceed as quickly as possible once we have confirmed your identity."
                                 }
                                 p {
